@@ -5,8 +5,16 @@
 </head>
 <body>
 <img src="ratwithahat.jpg" title="ratwithahat.jpg" onClick="alert(this.title)" />
+
 <script>
-document.write(document.lastModified);
+document.write(document.lastModified + "</br>");
+var cTemp = 100;
+function tempcon(cTemp) {
+    var hTemp = ((cTemp * 9) /5 ) + 32;
+    return hTemp;
+}
+document.write("Temperature in Celsius: " + cTemp + "degrees<br/>");
+document.write("Temperature in Fahrenheit: " + tempcon(cTemp) + "degrees");
 </script>
 </body>
 </html>
