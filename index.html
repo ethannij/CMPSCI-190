@@ -4,10 +4,9 @@
 <title>Hello from JavaScript!</title>
 </head>
 <body>
-<img src="ratwithahat.jpg" title="ratwithahat.jpg" onClick="alert(this.title)" />
-
+<img src="ratwithahat.jpg" title="ratwithahat.jpg" onClick="this.title = Hello" />
+<button onClick="window.location.href = 'lab1.html'">Lab 1</button>
 <script>
-document.write(document.lastModified + "</br>");
 var cTemp = 100;
 function tempcon(cTemp) {
     var hTemp = ((cTemp * 9) /5 ) + 32;
