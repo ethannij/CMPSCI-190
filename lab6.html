@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lab 6</title>
+<script>
+    var banners = ["banner1.jpg", "banner2.jpg", "banner3.jpg"];
+    function run() {
+        setInterval(cycle, 2000);
+    }
+    function rand() {
+        return Math.floor((Math.random() * 3) + 0);
+    }
+    function cycle() {
+        counter = rand();
+        document.getElementById("banner").src = banners[counter];
+        console.log(counter);
+    }
+</script>
+</head>
+<body onload = "run();">
+<img id="banner" alt="banner" src="banner1.jpg"/>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lab 5</title>
+</head>
+<script>
+function wrangleArray() {
+    var sentence = prompt("Enter starting sentence");
+    var newSentence = "";
+    document.getElementById("div1").innerHTML = "<p>" + sentence + "</p>";
+    var words = sentence.split("");
+    var message = words.splice(16,11,"powerful");
+    alert('Removed Words:' + message);
+    document.getElementById("div2").innerHTML = "<p>" + words.join("") + "</p>";
+    document.getElementById("div3").innerHTML = "<p>" + words.sort() + "</p>";
+    document.getElementById("div4").innerHTML = "<p>" + words.splice(1,8) + "</p>";
+}
+</script>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+    <script>wrangleArray();</script>
+</body>
+</html>

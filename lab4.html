@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lab 4</title>
+<style>
+p {font: 14px normal arial, verdana, helvetica;}
+</style>
+<script>
+function getMonthShortName(monthNo) {
+const date = new Date();
+date.setMonth(monthNo);
+
+return date.toLocaleString('en-US', { month: 'short' });
+}
+function telltime() {
+var out = "";
+var now = new Date(); 
+//25 Dec 2011 12:35
+
+out += "<br />(24 Hour): " + now.getDate() + " " + getMonthShortName(now.getMonth()) + " " + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes();
+
+document.getElementById("div1").innerHTML = out;
+}
+</script>
+</head>
+<body>
+The current date and time are:<br/>
+<div id="div1"></div>
+<script>
+telltime();
+</script>
+<input type="button" onclick="location.reload()" value="Refresh"
+/>
+</body>
+</html>
