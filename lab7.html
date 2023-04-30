@@ -3,12 +3,21 @@
 <head>
 <title>Lab 7</title>
 <script>
-    function Person(first, last, age, eye) {
-    this.firstName = first;
-    this.lastName = last;
-    this.age = age;
-    this.eyeColor = eye;
+    function Card() {
+        this.suit = setSuit();
+        this.face = setFace();
+        document.write(this.face + " of " + this.suit + "s");
 }
+    function setSuit() {
+        var suits = ["diamond", "heart", "spade", "club"];
+        return suits[Math.floor((Math.random() * 4) + 0)];
+    }
+    function setFace() {
+        var face = ["ace", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"];
+        return face[Math.floor((Math.random() * 14) + 0)];
+    }
+    var newCard = new Card();
+
 </script>
 </head>
 </html>
