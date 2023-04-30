@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 9</title>
+        <script>
+            function checkform() {
+                document.getElementById("form1").onsubmit = function() {
+                    var allowSubmit = true;
+                    var userErr;
+                    var numberErr;
+                    if(document.getElementById("user").value == "") {
+                        userErr = true;
+                        allowSubmit = false;
+                    }
+                    
+                    if(document.getElementById("phone").value == "") {
+                        numberErr = true;
+                        allowSubmit = false;
+                    }
+                    function showErr() {
+                        var error = "";
+                        if(userErr == true) {
+                            error += "Name field cannot be blank \n";
+                        }
+                        if(numberErr == true) {
+                            error += "Phone field cannot be blank \n";
+                        }
+                        alert(error);
+                    }
+                    if(allowSubmit == false) {
+                        showErr();
+                    }
+                    if(allowSubmit) alert("Data OK - submitting form");
+                    return allowSubmit;
+                }
+            }
+            window.onload = checkform;
+        </script>
+    </head>
+    <body>
+        <form id="form1">
+        Name: <input type="text" value="" name="username" id="user" />[Required field]<br/>
+        Phone: <input type="text" value="" name="telephone" id="phone"/>[Required field]<br/>
+        <input type="submit"/>
+        </form>
+    </body>
+</html>
