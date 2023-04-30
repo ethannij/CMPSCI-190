@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 8</title>
+    <script>
+            /*function Dog() {
+                this.name = getName();
+                this.breed = getBreed();
+                this.age = getAge();
+                document.write("Breed: " + this.breed + "\n");
+                document.write("Age: " + this.age + "\n");
+                document.write("Name: " + this.name + "\n");
+                showJson();
+            } */
+
+            function getBreed() {
+                var breed = ["poodle", "pitbull", "bulldog", "chihuahua", "mastiff", "terrier", "labrador", "shepard", "pug", "retreiver", "unknown"];
+                return breed[Math.floor((Math.random() * breed.length) + 0)];
+            }
+            function getAge() {
+                var age = Math.floor((Math.random() * 14) + 0);
+                return age;
+            }
+            function getName() {
+                // Based on akc.org top 100 names
+                var names = ["Max", "Copper", "Auggie", "Milo", "Dexter", "Bubba", "Cooper", "Goose", "Luna", "Princess", "Zelda", "Bella", "Harper", "Freyja", "Daisy", "Oakley"];
+                    return names[Math.floor((Math.random() * names.length) + 0)]
+                }
+
+            function showJson() {
+                var dog = {name:getName(), breed:getBreed(), age:getAge()};
+                document.write(JSON.stringify(dog));
+            }
+            function jsonParse() {
+            var inString = prompt("Enter JSON object");
+            var out = "";
+            myObject = JSON.parse(inString);
+            for (i in myObject) {
+                out += "Property: " + i + "=" + myObject[i] + '\n';
+            }
+                alert(out);
+        }
+    </script>
+</head>
+<body onload="showJson()"></body>
+</html>
