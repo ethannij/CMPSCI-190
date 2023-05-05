@@ -5,8 +5,13 @@
         <script src="cookies.js"></script>
         <script>
             window.onload = function() {
-                document.getElementById("output").innerHTML = "Your cookie value: " + getCookie("myCookieData");
-            }
+                var cookieData = getCookie("myCookieData");
+                var valuesArray = cookieData.split("#");
+                var outputHtml = "Your cookie values:<br/>";
+                for (var i = 0; i < valuesArray.length; i++) {
+                    outputHtml += valuesArray[i] + "<br/>";
+                }
+                document.getElementById("output").innerHTML = outputHtml;            }
         </script>
     </head>
     <body>

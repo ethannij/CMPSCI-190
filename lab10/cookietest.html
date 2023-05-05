@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lab10</title>
+        <title>Cookie Test</title>
         <script src=cookies.js></script>
         <script>
             window.onload = function() {
-                var cookievalue = prompt("Cookie Value:");
+                var cookieValues = prompt("Enter cookie values separated by #:");
+                var valuesArray = cookieValues.split("#");
+                var cookieData = "";
+                for (var i = 0; i < valuesArray.length; i++) {
+                    cookieData += valuesArray[i] + "#";
+                }
                 createCookie("myCookieData", cookievalue);
             }
         </script>
