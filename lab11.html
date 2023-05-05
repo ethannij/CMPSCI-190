@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 11</title>
+    </head>
+    <body>
+        <h1>Things To Do</h1>
+        <ol id="toDoList">
+            <li>Mow the lawn</li>
+            <!--This part is REALLY important-->
+            <!--Has not been mowed in weeks-->
+            <li>Clean the windows</li>
+            <!--If there isn't time, you could skip this-->
+            <li>Answer your email</li>
+            <!--At least answer the three from last week, do them all if possible though-->
+        </ol>
+        <p id="toDoNotes">Make sure all these components are completed by 8pm so you can watch the game on TV!</p>
+        <!--You cannot miss this game-->
+    </body>
+    <script>
+        function getBodyComments() {
+            var comments = document.createNodeIterator(document.body, NodeFilter.SHOW_COMMENT);
+            var comment, concatenatedComments = '';
+            while (comment = comments.nextNode()) {
+                concatenatedComments += comment.nodeValue.trim() + '\n';
+            }
+            return concatenatedComments;
+            }
+            console.log(getBodyComments());
+    </script>
+</html>
