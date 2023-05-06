@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 12</title>
+    </head>
+    <body>
+        <body>
+            <div id="target">Target Element</div>
+            <button onclick="insertBeforeExample()">Insert Before</button>
+            <button onclick="insertAfterExample()">Insert After</button>
+          
+            <script>
+              function insertBeforeExample() {
+                var newNode = document.createElement('div');
+                newNode.textContent = 'New Element';
+          
+                var targetNode = document.getElementById('target');
+                targetNode.parentNode.insertBefore(newNode, targetNode);
+              }
+          
+              function insertAfter(newNode, targetNode) {
+                var parent = targetNode.parentNode;
+          
+                if (targetNode.nextSibling) {
+                  parent.insertBefore(newNode, targetNode.nextSibling);
+                } else {
+                  parent.appendChild(newNode);
+                }
+              }
+          
+              function insertAfterExample() {
+                var newNode = document.createElement('div');
+                newNode.textContent = 'New Element';
+          
+                var targetNode = document.getElementById('target');
+                insertAfter(newNode, targetNode);
+              }
+    </script>
+</html>
