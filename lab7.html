@@ -3,20 +3,39 @@
 <head>
 <title>Lab 7</title>
 <script>
-    function Card() {
-        this.suit = setSuit();
-        this.face = setFace();
-        document.write(this.face + " of " + this.suit + "s");
+        function Card(suit, face) {
+            this.suit = suit;
+            this.face = face;
+
+            this.setSuit = function(suit) {
+                this.suit = suit;
+            }
+
+            this.setFace = function(face) {
+                this.face = face;
+            }
 }
-    function setSuit() {
-        var suits = ["diamond", "heart", "spade", "club"];
-        return suits[Math.floor((Math.random() * 4) + 0)];
-    }
-    function setFace() {
-        var face = ["ace", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"];
-        return face[Math.floor((Math.random() * 14) + 0)];
-    }
-    var newCard = new Card();
+var suits = ["diamond", "heart", "spade", "club"];
+var face = ["ace", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"];
+
+
+var card = new Card(suits[Math.floor((Math.random() * 4) + 0)], face[Math.floor((Math.random() * 14) + 0)])
+document.write(card.face + " of " + card.suit + "s");
+
+//     function Card() {
+//         this.suit = setSuit();
+//         this.face = setFace();
+//         document.write(this.face + " of " + this.suit + "s");
+// }
+//     function setSuit() {
+//         var suits = ["diamond", "heart", "spade", "club"];
+//         return suits[Math.floor((Math.random() * 4) + 0)];
+//     }
+//     function setFace() {
+//         var face = ["ace", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"];
+//         return face[Math.floor((Math.random() * 14) + 0)];
+//     }
+//     var newCard = new Card();
 
 </script>
 </head>
