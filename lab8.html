@@ -28,7 +28,15 @@
                 }
 
             function showJson() {
-                var dog = {name:getName(), breed:getBreed(), age:getAge()};
+                // First submission issue
+                /*var dog = {name:getName(), breed:getBreed(), age:getAge()};
+                document.write(JSON.stringify(dog));*/
+
+                var dog = new Object();
+                dog.name = getName(); //Hopefully it's okay if I leave the getX() functions as they are
+                dog.breed = getBreed(); //I figure since it just chooses an option at random, it doesn't really how/where this is done
+                dog.age = getAge();
+
                 document.write(JSON.stringify(dog));
             }
             function jsonParse() {
