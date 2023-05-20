@@ -7,18 +7,35 @@
             function display(content) {
                 document.getElementById("displaydiv").innerHTML = content;
             }
+            function showLoadingMessage() {
+                document.getElementById("loadingMessage").style.display = "block";
+            }
+            function hideLoadingMessage() {
+                document.getElementById("loadingMessage").style.display = "none";
+            }
+
             window.onload = function() {
                 document.getElementById("btn1").onclick = function() {
                     var url = document.getElementById("txt1").value;
+                    showLoadingMessage();
                     doAjax("metatags.php", "url=" + url, "display", "post", 0);
                 }
             }
         </script>
+        <style>
+            #loadingMessage {
+                display: none;
+                font-style: italic;
+                color: gray;
+            }
+        </style>
     </head>
     <body>
         http://<input type="text" id="txt1" value=""/>
         <input type="button" id="btn1" value="Get Keywords"/>
         <h3>Keywords Received: </h3>
         <div id="displaydiv"></div>
+        <div id="loadingMessage">Loading... Please Wait</div>
+        <button onclick="window.location.href = 'http://ethannij.x10.mx/metatags.html';">Click Me for PHP</button>
     </body>
 </html>
