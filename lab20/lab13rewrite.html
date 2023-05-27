@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 20 (13 Rewrite) </title>
+  <style>
+    span {
+      font-size: 24pt;
+      font-family: 'Pacifico', cursive;
+      padding: 20px;
+      text-decoration: underline;
+      border: 4px solid #348;
+      margin: 10px;
+    }
+  </style>
+  <body>
+    <h1>Lab 13 Prototype Rewrite</h1>
+    <a href="lab11rewrite.html">Previous</a>
+  </body>
+  <!-- <link> adds source for Pacifico font-->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <script src="../prototype.js"></script>
+  <script>
+    /* --- Old code ---
+    function toggle() {
+                var myElement = document.getElementById("id1");
+                if(myElement.style.backgroundColor == 'red') {
+                    myElement.style.backgroundColor = 'yellow';
+                    myElement.style.color = 'black';
+                } else {
+                    myElement.style.backgroundColor = 'red';
+                    myElement.style.color = 'white';
+                } 
+            }
+        window.onload = function() {
+                document.getElementById("btn1").onclick = toggle;
+        }
+    */
+
+    // Prototype Rewrite
+    function toggle() {
+      var myElement = $('id1');
+      if (myElement.getStyle('background-color') === 'red') {
+        myElement.setStyle({
+          backgroundColor: 'yellow',
+          color: 'black'
+        });
+      } else {
+        myElement.setStyle({
+          backgroundColor: 'red',
+          color: 'white'
+        });
+      }
+    }
+
+    document.observe('dom:loaded', function() {
+      $('btn1').observe('click', toggle);
+    });
+  </script>
+</head>
+<body>
+  <span id="id1">Welcome back to my site.</span>
+  <input type="button" id="btn1" value="Toggle"/>
+</body>
+</html>

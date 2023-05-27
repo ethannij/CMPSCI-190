@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 20 (11 rewrite)</title>
+  <script src="../prototype.js"></script>
+</head>
+<body>
+  <h1>Things To Do (PrototypeJS Rewrite)</h1>
+  <ol id="toDoList">
+    <li>Mow the lawn</li>
+    <!--This part is REALLY important-->
+    <!--Has not been mowed in weeks-->
+    <li>Clean the windows</li>
+    <!--If there isn't time, you could skip this-->
+    <li>Answer your email</li>
+    <!--At least answer the three from last week, do them all if possible though-->
+  </ol>
+  <p id="toDoNotes">Make sure all these components are completed by 8pm so you can watch the game on TV!</p>
+  <!--You cannot miss this game-->
+
+  <a href="lab13rewrite.html">Next</a>
+
+  <script>
+    /* --- OLD CODE ---
+    function getBodyComments() {
+            var comments = document.createNodeIterator(document.body, NodeFilter.SHOW_COMMENT);
+            var comment, concatenatedComments = '';
+            while (comment = comments.nextNode()) {
+                concatenatedComments += comment.nodeValue.trim() + '\n';
+            }
+            return concatenatedComments;
+            }
+            console.log(getBodyComments());
+    */
+
+    // PrototypeJS rewrite
+    document.observe('dom:loaded', function() {
+      var comments = $A(document.body.childNodes).filter(function(node) {
+        return node.nodeType === Node.COMMENT_NODE;
+      }).map(function(comment) {
+        return comment.nodeValue.trim();
+      }).join('\n');
+      
+      console.log(comments);
+    });
+  </script>
+</body>
+</html>
