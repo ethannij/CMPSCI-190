@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 19</title>
+  <script src="prototype.js"></script>
+</head>
+<body>
+  <div id="myDiv">Proto-Test (JS)</div>
+  
+  <script>
+    var myDiv = $('myDiv');
+
+    myDiv.setStyle({ color: 'red' });
+    
+    myDiv.addClassName('highlight');
+    
+    var newElement = new Element('p', { id: 'newParagraph', className: 'info' });
+    newElement.update('Manipulate CSS/HTML with JS');
+    document.body.insert(newElement);
+    
+    $$('p').each(function(paragraph) {
+      paragraph.setStyle({ backgroundColor: 'yellow' });
+    });
+  </script>
+</body>
+</html>
