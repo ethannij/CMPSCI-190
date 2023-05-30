@@ -2,10 +2,10 @@
 <html>
 <head>
   <title>Lab 20 (11 rewrite)</title>
-  <script src="../prototype.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
 <body>
-  <h1>Things To Do (PrototypeJS Rewrite)</h1>
+  <h1>Things To Do (Qquery Rewrite)</h1>
   <ol id="toDoList">
     <li>Mow the lawn</li>
     <!--This part is REALLY important-->
@@ -34,7 +34,7 @@
     */
 
     // PrototypeJS rewrite
-    document.observe('dom:loaded', function() {
+   /* document.observe('dom:loaded', function() {
       var comments = $A(document.body.childNodes).filter(function(node) {
         return node.nodeType === Node.COMMENT_NODE;
       }).map(function(comment) {
@@ -43,6 +43,27 @@
       
       console.log(comments);
     });
+    */
+
+    //Jquery Rewrite
+    function getBodyComments() {
+      var concatenatedComments = '';
+      $('body').contents().each(function() {
+        if (this.nodeType === Node.COMMENT_NODE) {
+            concatenatedComments += this.nodeValue.trim() + '\n';
+        }
+      });
+      return concatenatedComments.trim().split('\n');
+    }
+
+    var comments = getBodyComments();
+    for (var i = 0; i < comments.length; i++) {
+    console.log(comments[i]);
+    } 
+
+
+
+
   </script>
 </body>
 </html>

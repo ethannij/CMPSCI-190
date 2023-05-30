@@ -13,12 +13,12 @@
     }
   </style>
   <body>
-    <h1>Lab 13 Prototype Rewrite</h1>
+    <h1>Lab 13 Jquery Rewrite</h1>
     <a href="lab11rewrite.html">Previous</a>
   </body>
   <!-- <link> adds source for Pacifico font-->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <script src="../prototype.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script>
     /* --- Old code ---
     function toggle() {
@@ -37,7 +37,7 @@
     */
 
     // Prototype Rewrite
-    function toggle() {
+    /*function toggle() {
       var myElement = $('id1');
       if (myElement.getStyle('background-color') === 'red') {
         myElement.setStyle({
@@ -55,6 +55,29 @@
     document.observe('dom:loaded', function() {
       $('btn1').observe('click', toggle);
     });
+    */
+    
+    // Jquery Rewrite
+    $(document).ready(function() {
+    function toggle() {
+    var myElement = $('#id1');
+    if (myElement.css('background-color') == 'rgb(255, 0, 0)') {
+      myElement.css({
+        'background-color': 'yellow',
+        'color': 'black'
+      });
+    } else {
+      myElement.css({
+        'background-color': 'red',
+        'color': 'white'
+      });
+    }
+  }
+
+  $('#btn1').click(toggle);
+});
+
+
   </script>
 </head>
 <body>
